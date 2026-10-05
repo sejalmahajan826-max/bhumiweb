@@ -1,14 +1,729 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+
+    <title>Shree Annapurna Mess</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fffaf2;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        header {
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 7%;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #e67e22;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 27px;
+        }
+
+        .logo-text h2 {
+            color: #e67e22;
+            font-size: 21px;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: #777;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        .order-btn {
+            background: #e67e22;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 7%;
+            background: linear-gradient(
+                120deg,
+                #fff3e0,
+                #fffaf2
+            );
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            color: #3d281b;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #e67e22;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero-btn:hover {
+            background: #cf6410;
+        }
+
+        .hero-image {
+            width: 45%;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* SECTION */
+        .section {
+            padding: 70px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            font-size: 36px;
+            color: #3d281b;
+        }
+
+        .title p {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* MENU */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .menu-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            color: #e67e22;
+            margin-bottom: 12px;
+        }
+
+        .menu-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .price {
+            color: #e67e22;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            color: #e67e22;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            width: 50%;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about-text {
+            width: 50%;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #3d281b;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* PRICING */
+        .pricing {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .price-card h3 {
+            color: #e67e22;
+            font-size: 24px;
+        }
+
+        .amount {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #3d281b;
+        }
+
+        .price-card ul {
+            list-style: none;
+            line-height: 2;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #fff0dc;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #3d281b;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer .footer-logo {
+            font-size: 25px;
+            color: #f5a65b;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* MOBILE */
+        @media(max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-image {
+                width: 90%;
+                margin-top: 40px;
+            }
+
+            .menu {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-image,
+            .about-text {
+                width: 100%;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .order-btn {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Welcome to cloud</h1>
-    <p>This is my HTML webpage.</p>
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🍛
+            </div>
+
+            <div class="logo-text">
+                <h2>Shree Annapurna</h2>
+                <p>Pure • Fresh • Homemade</p>
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#plans">Plans</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#plans" class="order-btn">
+            Join Mess
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>
+                Ghar Jaisa
+                <span>Swad</span>
+                Everyday
+            </h1>
+
+            <p>
+                Healthy, hygienic and delicious homemade food
+                prepared fresh every day for students and working professionals.
+            </p>
+
+            <a href="#menu" class="hero-btn">
+                View Today's Menu
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
+            alt="Indian Food">
+
+        </div>
+
+    </section>
+
+
+    <!-- TODAY MENU -->
+    <section class="section" id="menu">
+
+        <div class="title">
+
+            <h2>Today's Special Menu</h2>
+
+            <p>
+                Freshly prepared with quality ingredients
+            </p>
+
+        </div>
+
+
+        <div class="menu">
+
+            <div class="menu-card">
+
+                <div class="menu-icon">🍚</div>
+
+                <h3>Lunch Thali</h3>
+
+                <p>
+                    Rice, Dal, 2 Sabji, Chapati,
+                    Salad and Sweet
+                </p>
+
+                <div class="price">
+                    ₹80
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-icon">🥘</div>
+
+                <h3>Special Thali</h3>
+
+                <p>
+                    Rice, Dal Fry, Paneer,
+                    Chapati, Salad and Sweet
+                </p>
+
+                <div class="price">
+                    ₹120
+                </div>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="menu-icon">🍲</div>
+
+                <h3>Dinner Thali</h3>
+
+                <p>
+                    Rice, Dal, Vegetable,
+                    Chapati, Salad and Dessert
+                </p>
+
+                <div class="price">
+                    ₹80
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section">
+
+        <div class="title">
+
+            <h2>Why Choose Us?</h2>
+
+            <p>
+                We care about your health and happiness
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">🥗</div>
+                <h3>Fresh Food</h3>
+                <p>Freshly prepared every day.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🧼</div>
+                <h3>Hygienic</h3>
+                <p>Clean and hygienic kitchen.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable</h3>
+                <p>Quality food at affordable prices.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">❤️</div>
+                <h3>Homemade</h3>
+                <p>Delicious ghar jaisa food.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+
+        <div class="about">
+
+            <div class="about-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80"
+                alt="Mess">
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>About Our Mess</h2>
+
+                <p>
+                    Shree Annapurna Mess provides healthy and
+                    affordable homemade meals for students,
+                    bachelors and working professionals.
+                </p>
+
+                <p>
+                    Our food is prepared using fresh vegetables,
+                    quality ingredients and traditional Indian recipes.
+                </p>
+
+                <p>
+                    Our goal is simple — to give you
+                    <b>ghar jaisa swad</b> away from home.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLANS -->
+    <section class="section" id="plans">
+
+        <div class="title">
+
+            <h2>Monthly Mess Plans</h2>
+
+            <p>Choose the plan that suits you</p>
+
+        </div>
+
+
+        <div class="pricing">
+
+            <div class="price-card">
+
+                <h3>Basic Plan</h3>
+
+                <div class="amount">
+                    ₹2,200
+                </div>
+
+                <ul>
+                    <li>✔ Lunch</li>
+                    <li>✔ Dinner</li>
+                    <li>✔ 26 Days</li>
+                    <li>✔ Homemade Food</li>
+                </ul>
+
+                <a href="#contact" class="hero-btn">
+                    Join Now
+                </a>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>Premium Plan</h3>
+
+                <div class="amount">
+                    ₹2,800
+                </div>
+
+                <ul>
+                    <li>✔ Breakfast</li>
+                    <li>✔ Lunch</li>
+                    <li>✔ Dinner</li>
+                    <li>✔ 30 Days</li>
+                </ul>
+
+                <a href="#contact" class="hero-btn">
+                    Join Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+        <div class="title">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Want to join our mess? Contact us today!
+            </p>
+
+        </div>
+
+
+        <div class="contact-info">
+
+            📍 College Road, Nashik, Maharashtra
+            <br>
+
+            📞 +91 98765 43210
+            <br>
+
+            📧 shreeannapurnamess@gmail.com
+            <br>
+
+            🕐 Lunch: 12:00 PM – 3:00 PM
+            <br>
+
+            🕐 Dinner: 7:30 PM – 10:00 PM
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            🍛 Shree Annapurna Mess
+        </div>
+
+        <p>
+            Ghar Jaisa Swad • Healthy Food • Happy Life
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 Shree Annapurna Mess. All Rights Reserved.
+        </p>
+
+    </footer>
 
 </body>
 </html>
